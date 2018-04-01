@@ -45,7 +45,7 @@ Mobile Phone Mast Data
 
     def current_rent(self):
         """
-        Read in the attached file and produce a list 
+        1. Read in the attached file and produce a list 
         sorted by Current Rent in ascending order.
         Obtain the first 5 items from the resultant list 
         and output to the console.
@@ -57,8 +57,22 @@ Mobile Phone Mast Data
 
 
     def lease_years(self):
-        pass
+        """
+        2. From the list of all mast data create new list 
+        of mast data with Lease Years = 25 years.
+        Output the list to the console, include all data fields.
+        Output the total rent for all items in this list 
+        to the console.
+        """
+        self.lease = []
+        for i in range(len(self.masts.data)):
+            if self.masts.data[i][-2] == 25:
+                self.lease.append(self.masts.data[i])
 
+        print(self.masts.header)
+        for i in self.lease:
+            print(i)
+            
 
     def tenant(self):
         pass
