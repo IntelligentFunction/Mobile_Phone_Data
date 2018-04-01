@@ -75,10 +75,25 @@ Mobile Phone Mast Data
             
 
     def tenant(self):
-        pass
+        """
+        3. Create a dictionary containing tenant name and a count 
+        of masts for each tenant. 
+        Output the dictionary to the console in a readable form.
+
+        NOTE. Treat "Everything Everywhere Ltd" and "Hutchinson3G Uk 
+        Ltd&Everything Everywhere Ltd" as separate entities.
+        """
+        print(self.masts.header[3])
 
 
     def lease_date(self):
+        """
+        4. List the data for rentals with Lease Start Date 
+        between 1 June 1999 and 31 Aug 2007.
+
+        Output the data to the console with dates formatted as 
+        DD/MM/YYYY.
+        """
         pass
 
 

@@ -10,7 +10,7 @@ class PhoneMastData:
     """
     
     def __init__(self):
-        self.header = []
+        #self.header = []
         self.data = []
 
         
@@ -21,7 +21,7 @@ class PhoneMastData:
         self.path = sys.argv[1]
         self.myfile = open(self.path, newline='')
         self.reader = reader(self.myfile)
-        self.header.append(next(self.reader))
+        self.header = (next(self.reader))
         for row in self.reader:
             property = str(row[0])
             address1 = str(row[1])
