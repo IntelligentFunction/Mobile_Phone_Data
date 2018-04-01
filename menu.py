@@ -10,7 +10,7 @@ class Menu:
     Display a menu and respond to choices when run.
     """
     def __init__(self):
-        self.data = PhoneMastData
+        #self.data = PhoneMastData()
         self.choices = {
             "1": self.current_rent,
             "2": self.lease_years,
@@ -31,19 +31,26 @@ Mobile Phone Mast Data
 """)
 
     def run(self):
-        """Displat the menu and respond to choices."""
+        """Display the menu then load data and respond to choices."""
         while True:
             self.display_menu()
             choice = input("Enter an option: ")
             action = self.choices.get(choice)
             if action:
+                self.masts = PhoneMastData()
+                self.masts._load_data()
                 action()
             else:
                 print("{0} is not a valid choice".format(choice))
 
     def current_rent(self):
-        self.masts = PhoneMastData()
-        self.masts.load_data()
+        """
+        Read in the attached file and produce a list 
+        sorted by Current Rent in ascending order.
+        Obtain the first 5 items from the resultant list 
+        and output to the console.
+        """
+        self.masts.data.sort(key=lambda x: float(x[-1]))
         print(self.masts.header)
         for i in range(5):
             print(self.masts.data[i])

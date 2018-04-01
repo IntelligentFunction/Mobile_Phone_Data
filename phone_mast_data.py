@@ -14,7 +14,7 @@ class PhoneMastData:
         self.data = []
 
         
-    def load_data(self):
+    def _load_data(self):
         '''
         Function to load data into program
         '''
@@ -35,10 +35,10 @@ class PhoneMastData:
             years = int(row[9])
             rent = float(row[10])
         
-            self.data.append([property, address1, address2, address3, address4,
-                              unit, tenant, start, end, years, rent])
+            self.data.append([property, address1, address2,
+                              address3, address4, unit, tenant,
+                              start, end, years, rent])
 
-    #return data
 
 
 
