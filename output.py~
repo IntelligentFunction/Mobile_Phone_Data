@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+#-*- coding: utf-8 -*-
+
+
+class Output:
+
+
+    def _current_rent(self):
+        """
+        1. Read in the attached file and produce a list 
+        sorted by Current Rent in ascending order.
+        Obtain the first 5 items from the resultant list 
+        and output to the console.
+        """
+        self.masts.data.sort(key=lambda x: float(x[-1]))
+        print(self.masts.header)
+        for i in range(5):
+            print(self.masts.data[i])
