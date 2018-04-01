@@ -66,14 +66,19 @@ Mobile Phone Mast Data
         to the console.
         """
         self.lease = []
+        self.total_rent = 0
         for i in range(len(self.masts.data)):
             if self.masts.data[i][-2] == 25:
                 self.lease.append(self.masts.data[i])
+                self.total_rent +=self.masts.data[i][-1]
 
         print(self.masts.header)
         for i in self.lease:
             print(i)
-            
+        print()
+        print("Total rent from these masts = {}".
+              format(self.total_rent))
+
 
     def tenant(self):
         """
