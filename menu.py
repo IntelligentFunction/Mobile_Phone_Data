@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 import sys
-#from mobile_phone_masts import Data
+from phone_mast_data import PhoneMastData
 
 
 class Menu:
@@ -10,7 +10,7 @@ class Menu:
     Display a menu and respond to choices when run.
     """
     def __init__(self):
-        #self.data = Data()
+        self.data = PhoneMastData
         self.choices = {
             "1": self.current_rent,
             "2": self.lease_years,
@@ -42,7 +42,11 @@ Mobile Phone Mast Data
                 print("{0} is not a valid choice".format(choice))
 
     def current_rent(self):
-        pass
+        self.masts = PhoneMastData()
+        self.masts.load_data()
+        print(self.masts.header)
+        for i in range(5):
+            print(self.masts.data[i])
 
 
     def lease_years(self):
