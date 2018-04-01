@@ -2,6 +2,7 @@
 #-*- coding: utf-8 -*-
 
 import sys
+from datetime import datetime
 from phone_mast_data import PhoneMastData
 
 
@@ -103,9 +104,15 @@ Mobile Phone Mast Data
         Output the data to the console with dates formatted as 
         DD/MM/YYYY.
         """
-        pass
+        d_start = datetime.strptime("1 Jun 1999","%d %b %Y")
+        
+        for i in range(len(self.masts.data)):
+            start = datetime.strptime(self.masts.data[i][7],
+                                      "%d %b %Y")
+            if start >= d_start:
+                print(self.masts.data[i])
 
-
+            
     def quit(self):
         print("Mobile Phone Mast application quitting.")
         print("Goodbye")
