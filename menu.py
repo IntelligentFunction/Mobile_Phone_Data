@@ -89,4 +89,5 @@ Mobile Phone Mast Data
 
 
 if __name__ == "__main__":
-    Menu().run()
+    app = Menu()
+    app.run()

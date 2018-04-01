@@ -41,4 +41,6 @@ class PhoneMastData:
 
 
 
-
+if __name__ == "__main__":
+    app = PhoneMastData()
+    app.run()
