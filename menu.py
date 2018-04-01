@@ -83,7 +83,8 @@ Mobile Phone Mast Data
         NOTE. Treat "Everything Everywhere Ltd" and "Hutchinson3G Uk 
         Ltd&Everything Everywhere Ltd" as separate entities.
         """
-        print(self.masts.header[3])
+        for i in range(len(self.masts.data)):
+            print(self.masts.data[i][6])
 
 
     def lease_date(self):
