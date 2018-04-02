@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+#-*- coding: utf-8 -*-
+
+import pytest
+from menu import Menu
+
+def test_file_import_format():
+    pass
+
+
+

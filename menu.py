@@ -13,8 +13,9 @@ class Menu:
         """
         Initialize Menu
         """
-        self.output = Output
-
+        self.masts = PhoneMastData()
+        self.masts._load_data()
+        self.output = Output        
         self.choices = {
             "1": self.current_rent,
             "2": self.lease_years,
@@ -46,12 +47,10 @@ Mobile Phone Mast Data
             choice = input("Enter an option: ")
             action = self.choices.get(choice)
             if action:
-                self.masts = PhoneMastData()
-                self.masts._load_data()
                 action()
             else:
                 print("{0} is not a valid choice".format(choice))
-
+                
 
     def current_rent(self):
         """Displays top 5 items in current rent list"""
@@ -86,22 +85,9 @@ Mobile Phone Mast Data
         print("Goodbye")
         sys.exit()
 
-
-        
-    def _output_data(self, item):
-        """
-        Format list into readable columns
-        """
-        print(
-            "|", item[0]," "*(30-len(item[0])),
-            "|", item[1]," "*(15-len(item[1])),
-        )
-        
-
-          
-        
-        
-
+       
+    
 if __name__ == "__main__":
     app = Menu()
     app.run()
+    
