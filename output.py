@@ -14,11 +14,11 @@ class Output:
         and output to the console.
         """
         self.masts.data.sort(key=lambda x: float(x[-1]))
-        print(self.masts.header)
         for i in range(5):
             print(self.masts.data[i])
         print()
 
+        
     def _lease_years(self):
         """
         2. From the list of all mast data create new list 
@@ -42,6 +42,7 @@ class Output:
               format(self.total_rent))
         print()
 
+        
     def _tenant(self):
         """
         3. Create a dictionary containing tenant name and a count 
@@ -53,16 +54,16 @@ class Output:
         """
         self.tenant_dict = {}
         for i in range(len(self.masts.data)):
-            cleaned_tenant = self.masts.data[i][6].strip()
-            if cleaned_tenant in self.tenant_dict:
-                self.tenant_dict[cleaned_tenant] += 1
+            if self.masts.data[i][6] in self.tenant_dict:
+                self.tenant_dict[self.masts.data[i][6]] += 1
             else:
-                self.tenant_dict[cleaned_tenant] = 1
+                self.tenant_dict[self.masts.data[i][6]] = 1
 
         for x in self.tenant_dict:
-            print(x, self.tenant_dict[x])
+            print(x," "*(50-len(x)), self.tenant_dict[x])
         print()
 
+        
     def _lease_date(self):
         """
         4. List the data for rentals with Lease Start Date 
@@ -72,10 +73,22 @@ class Output:
         DD/MM/YYYY.
         """
         d_start = datetime.strptime("1 Jun 1999","%d %b %Y")
-        
+        print(
+            "Property Name"," "*27,
+            "Client Name"," "*39,
+            "Start Date"," "*10,
+            "End Date"," "*12
+        )
+
         for i in range(len(self.masts.data)):
             start = datetime.strptime(self.masts.data[i][7],
                                       "%d %b %Y")
             if start >= d_start:
-                print(self.masts.data[i])
+                x = self.masts.data[i]
+                print(
+                    x[0]," "*(40-len(x[0])),
+                    x[6]," "*(50-len(x[6])),
+                    x[7]," "*(20-len(x[7])),
+                    x[8]
+                )
         print()

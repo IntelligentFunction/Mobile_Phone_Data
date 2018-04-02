@@ -88,20 +88,7 @@ Mobile Phone Mast Data
 
 
         
-    def _output_data(self, item):
-        """
-        Format list into readable columns
-        """
-        print(
-            "|", item[0]," "*(30-len(item[0])),
-            "|", item[1]," "*(15-len(item[1])),
-        )
-        
-
-          
-        
-        
-
+    
 if __name__ == "__main__":
     app = Menu()
     app.run()
