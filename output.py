@@ -83,12 +83,17 @@ class Output:
         for i in range(len(self.masts.data)):
             start = datetime.strptime(self.masts.data[i][7],
                                       "%d %b %Y")
+            #s_format = datetime.strptime(
+            #    self.masts.data[i][7], "%d %b %Y").strftime("%d/%m/%Y")
             if start >= d_start:
                 x = self.masts.data[i]
                 print(
                     x[0]," "*(40-len(x[0])),
                     x[6]," "*(50-len(x[6])),
-                    x[7]," "*(20-len(x[7])),
-                    x[8]
+                    datetime.strptime(x[7], "%d %b %Y").
+                    strftime("%d/%m/%Y"),
+                    " "*(11-len([7])),
+                    datetime.strptime(x[8], "%d %b %Y").
+                    strftime("%d/%m/%Y")
                 )
         print()
